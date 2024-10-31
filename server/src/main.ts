@@ -2,11 +2,26 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DataSource } from 'typeorm';
+import * as fs from 'fs';
+import * as path from 'path';
 
 async function bootstrap() {
+  const dbPath = path.join(process.cwd(), 'db/foodie.db');
+
+  if (!fs.existsSync(dbPath)) {
+    console.error(`Database file not found at path: ${dbPath}`);
+    process.exit(1);
+  } else {
+    console.log(`Database file found at path: ${dbPath}`);
+  }
+
+
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   const dataSource = app.get(DataSource);
+
+  const entities = dataSource.entityMetadatas;
+  console.log('Entities registered:', entities.map(entity => entity.name));
 
   try {
     if (!dataSource.isInitialized) {

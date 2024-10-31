@@ -11,6 +11,12 @@ export class RecipeService {
   ) {}
 
   async findAll(): Promise<Recipe[]> {
-    return this.recipeRepository.find({ relations: ['recipeIngredients', 'recipeIngredients.ingredient', 'recipeIngredients.measurementUnit'] });
+    await this.createTestRecipe();
+    return await this.recipeRepository.query('SELECT * FROM recipes');
+  }
+
+  async createTestRecipe() {
+    const recipe = this.recipeRepository.create({ name: 'Test Recipe', instructions: 'Test Instructions' });
+    await this.recipeRepository.save(recipe);
   }
 }

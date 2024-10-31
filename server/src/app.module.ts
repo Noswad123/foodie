@@ -1,16 +1,17 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RecipeModule } from './modules/recipe.module';
-import * as Entities from './entities'
+import * as Entities from './entities';
+import * as path from 'path';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: './db/foodie.db',
+      database: 'db/foodie.db',
       entities: Object.values(Entities),
       synchronize: true,
-      logging: true,
+      // logging: true,
     }),
     RecipeModule,
   ],

@@ -4,6 +4,7 @@
   "main": "dist/src/main",
   "scripts": {
     "build": "nest build",
+    "postbuild": "mkdir -p dist/db && ln -sf ../../src/db/foodie.db dist/db/foodie.db",
     "start:dev": "nest start --watch",
     "start:prod": "node ."
   },
