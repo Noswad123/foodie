@@ -1,3 +1,16 @@
-<div>
-  Recipes
+<div *ngIf="paginatedRecipes.length > 0; else noRecipes">
+  <ul>
+    <li *ngFor="let recipe of paginatedRecipes">{{ recipe.name }}</li>
+  </ul>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
 </div>
+
+<ng-template #noRecipes>
+  <p>No recipes available.</p>
+</ng-template>

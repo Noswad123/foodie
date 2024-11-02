@@ -17,6 +17,11 @@ async function bootstrap() {
 
 
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.enableCors({
+    origin: 'http://localhost:4200',
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true,
+  });
 
   const dataSource = app.get(DataSource);
 
