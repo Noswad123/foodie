@@ -5,7 +5,7 @@ import { RecipeService } from './recipe.page.service';
   templateUrl: './recipe.page.html',
   styleUrl: './recipe.page.scss'
 })
-export class RecipeListComponent implements OnInit {
+export class RecipePage implements OnInit {
   recipes: any[] = [];
   paginatedRecipes: any[] = [];
   currentPage: number = 1;

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CoreModule } from '../../app/core.module';
-import { RecipePage } from './recipe.page';
+import { HomePage } from './home.page';
 import { CommonModule } from '@angular/common';
 
-const routes: Routes = [{ path: '', component: RecipePage }];
+const routes: Routes = [{ path: '', component: HomePage }];
 
 @NgModule({
-    declarations: [RecipePage],
+    declarations: [HomePage],
     imports: [
         RouterModule.forChild(routes),
         CoreModule,
         CommonModule,
     ],
-    exports: [RecipePage],
+    exports: [HomePage],
 })
-export class RecipePageModule {}
+export class HomePageModule {}

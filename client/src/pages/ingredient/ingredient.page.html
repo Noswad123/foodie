@@ -1,0 +1,16 @@
+<div *ngIf="paginatedIngredients.length > 0; else noIngredients">
+  <ul>
+    <li *ngFor="let ingredient of paginatedIngredients">{{ ingredient.name }}</li>
+  </ul>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>
+
+<ng-template #noIngredients>
+  <p>No ingredients available.</p>
+</ng-template>

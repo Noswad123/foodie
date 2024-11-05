@@ -329,3 +329,24 @@
 -- ('Yogurt')
 -- ;
 
+CREATE TABLE ingredients_temp (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO ingredients_temp (id, name, created_at)
+SELECT id, name, created_at FROM ingredients;
+
+DROP TABLE ingredients;
+
+ALTER TABLE ingredients_temp RENAME TO ingredients;
+
+-- Trigger to set updated_at to current timestamp on update
+CREATE TRIGGER set_updated_at
+AFTER UPDATE ON ingredients
+FOR EACH ROW
+BEGIN
+    UPDATE ingredients SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
+END;
