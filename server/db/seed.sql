@@ -329,24 +329,169 @@
 -- ('Yogurt')
 -- ;
 
-CREATE TABLE ingredients_temp (
-    id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- CREATE TABLE ingredients_temp (
+--     id INTEGER PRIMARY KEY,
+--     name TEXT NOT NULL,
+--     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );
+--
+-- INSERT INTO ingredients_temp (id, name, created_at)
+-- SELECT id, name, created_at FROM ingredients;
+--
+-- DROP TABLE ingredients;
+--
+-- ALTER TABLE ingredients_temp RENAME TO ingredients;
+--
+-- -- Trigger to set updated_at to current timestamp on update
+-- CREATE TRIGGER set_updated_at
+-- AFTER UPDATE ON ingredients
+-- FOR EACH ROW
+-- BEGIN
+--     UPDATE ingredients SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
+-- END;
 
-INSERT INTO ingredients_temp (id, name, created_at)
-SELECT id, name, created_at FROM ingredients;
 
-DROP TABLE ingredients;
+INSERT INTO recipes (name)
+VALUES
+  ('French Toash'),
+  ('Strawberry Creami'),
+  ('Oatmeal Cookies'),
+  ('Beff Bulgogi Bowl'),
+  ('Chicken Sausage and Ricotta Ravioli'),
+  ('Hurry Up Biscuits'),
+  ('Pineapple Poblano Beef Tacos'),
+  ('Bison Pasta'),
+  ('Frijoles Fresca'),
+  ('Beef Burrito Bowls'),
+  ('Chicken Pineapple Quesadillas'),
+  ('Chilli'),
+  ('Korean Beef Bibimbap'),
+  ('Steak Tips and Creamy Truffle Fettucine'),
+  ('Balsamic Fig Chicken'),
+  ('Cherry Balsamic Pork Chops'),
+  ('Hot Honey Chicken'),
+  ('One-Pan Penut Udon Stir Fry'),
+  ('Orange Glazed Salmon'),
+  ('Parmesan-crusted Chicken'),
+  ('Pork Carnitas Tacos'),
+  ('Tuscan Sausage and Pepper'),
+  ('Curried Cauliflower'),
+  ('Curry and Soy-Glazed Chicken'),
+  ('Firecracker meatballs'),
+  ('Garlic-Caper Chicken'),
+  ('Jucy Lucy Burger'),
+  ('Pork Enchilada'),
+  ('Scallops Over Creamy Lemon Fettucine'),
+  ('Steak and Cheesy Mashed Potatoes'),
+  ('Cheesy Artichoke and Romesco Baked Chicken'),
+  ('Chicken and Farro'),
+  ('Crispy Baked Chicken and Ancho Honey Sauce'),
+  ('Pork Chops with Asparagus Salad'),
+  ('Seared Steaks and Lemon-caper Butter'),
+  ('Chorizo Tacos'),
+  ('Miso-Maple Chicken Thighs and Rice'),
+  ('Sheet Pan Pork Roast'),
+  ('Amaretto Sour'),
+  ('Apple Cinnamon Oatmeal'),
+  ('Apple Dijon Braised Chicken'),
+  ('Appletini'),
+  ('Banana Bread Bowl'),
+  ('Banana Pudding'),
+  ('Bay Breeze'),
+  ('Black Bean Chilli'),
+  ('Black Russian'),
+  ('Bloody Mary'),
+  ('Breakfast Tacos'),
+  ('Butter Chicken'),
+  ('Cabbage Salad'),
+  ('Cape Cod'),
+  ('Chicken Chips'),
+  ('Chicken Dumplings'),
+  ('Chicken Enchiladas'),
+  ('Chocolate Martini'),
+  ('Cinnamon Pecans'),
+  ('Colorado Bulldog'),
+  ('Cosmopolitan'),
+  ('Cottage Cheese Bowl'),
+  ('Crispy Buffalo Wings'),
+  ('Crispy Parmesan Chicken'),
+  ('Dark and Stormy'),
+  ('Face Eraser'),
+  ('Fried Chicken'),
+  ('Frozen Vegetable Stir Fry'),
+  ('Fuzzy Navel'),
+  ('Garlic Butter Salmon'),
+  ('Gimlet'),
+  ('Godfather'),
+  ('Godmother'),
+  ('Greyhound'),
+  ('Hasselback Potatoes'),
+  ('Herb Grilled Chicken'),
+  ('Honey Sesame Chicken'),
+  ('Incredible Hulk'),
+  ('Italian Stinger'),
+  ('Jambalaya'),
+  ('Joe Collins'),
+  ('John Collins'),
+  ('Lemon Chicken Wraps'),
+  ('Lemon Drop'),
+  ('Long Beach Tea'),
+  ('Long Island Iced Tea'),
+  ('Lynchburg Lemonade'),
+  ('Madras'),
+  ('Manhattan'),
+  ('Melon Ball Cocktail'),
+  ('Michael Scotch'),
+  ('Mind Eraser'),
+  ('Mini Cheesecake'),
+  ('Orange Crush'),
+  ('Painkiller'),
+  ('Pancakes'),
+  ('Peanut Butter Granola'),
+  ('Pecan Pie'),
+  ('Pinkman'),
+  ('Pound Cake'),
+  ('Raspberry Tea'),
+  ('Red Rum Sour'),
+  ('Red Sauce'),
+  ('Rob Roy'),
+  ('Royal Blue Smoothie'),
+  ('Rusy Nail'),
+  ('Sally Collins'),
+  ('Salty Dog'),
+  ('Savory Oatmeal'),
+  ('Screwdriver'),
+  ('Sea Breeze'),
+  ('Sex on the Beach'),
+  ('Shrimp Packets'),
+  ('Singapore Sling'),
+  ('Sloe Gin Fizz'),
+  ('Slow Comfortable Screw'),
+  ('Slow Screw'),
+  ('Slushi Creami'),
+  ('Smoke Salmon Toast'),
+  ('Sombrero'),
+  ('South Padre Tea'),
+  ('Stinger'),
+  ('Stone Sour'),
+  ('Sweet Potato Fries'),
+  ('Tequila Sunrise'),
+  ('Tiramasu'),
+  ('Tiramisu Martini'),
+  ('Tom Collins'),
+  ('Tomato Soup'),
+  ('Truffle Risotto'),
+  ('Tuscan Chicken Skillet'),
+  ('Twice Baked Potato Casserole'),
+  ('Vanilla Creami'),
+  ('Vodka Cherry Sour'),
+  ('Washinton Apple'),
+  ('Water Mocasin'),
+  ('Whisky Sour'),
+  ('Woo'),
+  ('White Russian'),
+  ('Yogurt Parfait'),
+  ('Chocolate Creami');
 
-ALTER TABLE ingredients_temp RENAME TO ingredients;
 
--- Trigger to set updated_at to current timestamp on update
-CREATE TRIGGER set_updated_at
-AFTER UPDATE ON ingredients
-FOR EACH ROW
-BEGIN
-    UPDATE ingredients SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
-END;
