@@ -1,17 +1,3 @@
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <h1><a routerLink="/">{{ title }}</a></h1>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <ul>
-        <li> <a routerLink="/recipes">Recipes</a></li>
-        <li><a routerLink="/ingredients">Ingredients</a></li>
-      </ul>
-    </div>
-  </div>
-</main>
-
-<router-outlet></router-outlet>
-
+<app-shell>
+  <router-outlet></router-outlet>
+</app-shell>
