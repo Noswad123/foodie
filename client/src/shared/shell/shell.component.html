@@ -30,12 +30,13 @@
 
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="logo" routerLink="/">🔥 Angular Firestarter</span>
+      <span class="logo" routerLink="/">Foodie 🍗</span>
 
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
         <a mat-button routerLink="/recipes">Recipes</a>
         <a mat-button routerLink="/ingredients">Ingredients</a>
+        <a mat-button routerLink="/login">Login</a>
       </div>
 
       <!-- DROPDOWN MENU -->

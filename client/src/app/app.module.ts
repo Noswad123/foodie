@@ -4,8 +4,10 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { PagesModule } from '../pages/pages.module';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { ComponentModule } from '../components/component.module';
+import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -14,11 +16,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       BrowserAnimationsModule,
       BrowserModule,
       PagesModule,
-      ComponentModule
+      AppRoutingModule,
+      SharedModule
     ],
     declarations: [AppComponent],
     providers: [
-      provideHttpClient(withInterceptorsFromDi()) // Configures HttpClient with interceptors from DI
+      provideHttpClient(withInterceptorsFromDi()),
+      provideAnimationsAsync()
   ],
 })
 export class AppModule {}
