@@ -1,0 +1,74 @@
+{
+  "recipes": [
+    {
+      "title": "Sheet Pan Soy-Glazed Pork Meatloaf with Sesame Roasted Potatoes & Broccoli",
+      "cooking_time": "45 MIN",
+      "servings": 4,
+      "nutrition_per_serving": {
+        "calories": 640
+      },
+      "ingredients": {
+        "meat": "18 oz Antibiotic-Free Ground Pork",
+        "vegetables": ["1 lb Broccoli", "1¼ lbs Potatoes"],
+        "condiments": ["3 Tbsps Soy Glaze", "4 Tbsps Hoisin Sauce", "1 Tbsp Sambal Oelek", "1 Tbsp Sesame Oil"],
+        "other": ["1¼ cups Panko Breadcrumbs", "⅓ cup East Asian-Style Sautéed Aromatics", "1 tsp Black & White Sesame Seeds"]
+      }
+    },
+    {
+      "title": "Spicy Pork Sausage & Mushroom Gnocchi with Spinach",
+      "cooking_time": "40 MIN",
+      "servings": 4,
+      "nutrition_per_serving": {
+        "calories": 850
+      },
+      "ingredients": {
+        "meat": "20 oz Hot Italian Pork Sausage",
+        "vegetables": ["5 oz Baby Spinach", "½ lb Mushrooms"],
+        "condiments": ["⅔ cup Béchamel Sauce", "⅓ cup Mushroom Duxelles", "4 Tbsps Crème Fraîche"],
+        "other": ["1½ lbs Gnocchi", "2 Single-Use Aluminum Trays"]
+      }
+    },
+    {
+      "title": "Spicy Sausage Rigatoni with Spinach & Romano Cheese",
+      "cooking_time": "15 MIN",
+      "servings": 4,
+      "nutrition_per_serving": {
+        "calories": 810
+      },
+      "ingredients": {
+        "meat": "20 oz Hot Italian Pork Sausage",
+        "pasta": "20 oz Cooked Rigatoni Pasta",
+        "vegetables": ["6 oz Baby Spinach"],
+        "condiments": ["2 8-Oz Cans Tomato Sauces", "1 Tbsp Calabrian Chile Paste", "½ cup Grated Romano Cheese", "¼ cup Mascarpone Cheese"]
+      }
+    },
+    {
+      "title": "Sweet & Spicy Sheet Pan Meatloaf with Roasted Vegetables, Parmesan & Dijon Sour Cream",
+      "cooking_time": "45 MIN",
+      "servings": 4,
+      "nutrition_per_serving": {
+        "calories": 590
+      },
+      "ingredients": {
+        "meat": "18 oz Ground Beef",
+        "vegetables": ["1 Red Onion", "1¼ lbs Potatoes", "2 Bell Peppers"],
+        "condiments": ["1 oz Raspberry Jalapeño Spread", "3 Tbsps Ketchup", "¼ cup Grated Parmesan Cheese", "1 Tbsp Dijonnaise", "¼ cup Sour Cream"],
+        "other": ["1 Pasture-Raised Egg", "½ cup Panko Breadcrumbs", "1½ tsps Calabrian Chile Paste", "1 Tbsp Smoky Spice Blend"]
+      }
+    },
+    {
+      "title": "Sweet Potato & Black Bean Enchiladas with Monterey Jack Cheese & Cilantro Guacamole",
+      "cooking_time": "40 MIN",
+      "servings": 4,
+      "nutrition_per_serving": {
+        "calories": 810
+      },
+      "ingredients": {
+        "meat": "10 oz Pork Chorizo",
+        "vegetables": ["1 lb Sweet Potatoes", "2 Zucchini", "1 Yellow Onion"],
+        "condiments": ["½ cup Sour Cream", "⅓ cup Guajillo Chile Pepper Sauce", "½ cup Guacamole", "¼ cup Cilantro Sauce", "3 Tbsps Pepper Sofrito"],
+        "other": ["8 Flour Tortillas", "4 oz Shredded Monterey Jack Cheese", "1 Lime"]
+      }
+    }
+  ]
+}
