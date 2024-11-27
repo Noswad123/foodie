@@ -13,4 +13,8 @@ export class RecipeService {
   async findAll(): Promise<Recipe[]> {
     return await this.recipeRepository.find();
   }
+
+  async findOne(id: number): Promise<Recipe> {
+    return await this.recipeRepository.findOne({where: {id}});
+  }
 }

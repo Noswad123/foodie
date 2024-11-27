@@ -1,0 +1,7 @@
+<div *ngIf="item; else noRecipe">
+  <h1>{{ item.name }}</h1>
+</div>
+
+<ng-template #noRecipe>
+  <p>This recipe doesn't exist.</p>
+</ng-template>

@@ -30,6 +30,13 @@ const routes: Routes = [
               (m) => m.IngredientDetailsPageModule,
           ),
   },
+  {
+    path: 'recipe-details/:id',
+    loadChildren: () =>
+        import('./recipe-details/recipe-details.module').then(
+            (m) => m.RecipeDetailsPageModule,
+        ),
+  },
 ];
 
 @NgModule({

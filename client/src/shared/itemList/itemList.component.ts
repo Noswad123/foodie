@@ -1,4 +1,4 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item-list',
@@ -9,5 +9,4 @@ export class ItemListComponent {
   @Input() items: any[] = [];
   @Input() route: string = '';
   @Input() title: string = '';
-  @Input() itemTemplate!: TemplateRef<any>;
 }
