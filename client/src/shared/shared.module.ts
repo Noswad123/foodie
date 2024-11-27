@@ -15,12 +15,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShellComponent } from './shell/shell.component';
 import { ItemListComponent } from './itemList/itemList.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const components = [ShellComponent, ItemListComponent];
 
 const modules = [
   CommonModule,
   MatButtonModule,
+  MatProgressSpinnerModule,
+  MatPaginatorModule,
   MatToolbarModule,
   LayoutModule,
   MatSidenavModule,

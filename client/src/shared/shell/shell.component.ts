@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-shell',
+  styleUrl: './shell.component.scss',
   templateUrl: './shell.component.html',
 })
 export class ShellComponent implements OnInit {

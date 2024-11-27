@@ -9,7 +9,7 @@ export class RecipePage implements OnInit {
   recipes: any[] = [];
   paginatedRecipes: any[] = [];
   currentPage: number = 1;
-  pageSize: number = 10;
+  pageSize: number = 50;
   isLoading = false;
 
   constructor(private recipeService: RecipeService) {}
