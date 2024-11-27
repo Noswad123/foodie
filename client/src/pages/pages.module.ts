@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -24,13 +23,19 @@ const routes: Routes = [
                 (m) => m.IngredientPageModule,
             ),
     },
+    {
+      path: 'ingredient-details/:id',
+      loadChildren: () =>
+          import('./ingredient-details/ingredient-details.module').then(
+              (m) => m.IngredientDetailsPageModule,
+          ),
+  },
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, {})],
     exports: [
       RouterModule,
-      HttpClientModule
     ],
     declarations: [],
 })

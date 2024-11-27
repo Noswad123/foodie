@@ -13,4 +13,8 @@ export class IngredientService {
   async findAll(): Promise<Ingredient[]> {
     return await this.ingredientRepository.find();
   }
+
+  async findOne(id: number): Promise<Ingredient> {
+    return await this.ingredientRepository.findOne({where: {id}});
+  }
 }

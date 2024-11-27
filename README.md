@@ -2,7 +2,7 @@
 
 deno install --global --allow-net --allow-read --allow-write -n cotton https://deno.land/x/cotton@v0.7.2/cli.ts
 
-# server setup
+## server setup
 
 turn the following into a script
 
@@ -70,3 +70,6 @@ npm ci --omit=dev
 ## Start the app using it's 'main' entry
 node .
 ```
+
+## Future adds
+- tags

@@ -13,10 +13,20 @@ export class IngredientPage implements OnInit {
 
   constructor(private ingredientService: IngredientService) {}
 
+  isLoading = false;
+
   ngOnInit(): void {
-    this.ingredientService.getAll().subscribe((data) => {
-      this.ingredients = data;
-      this.updatePaginatedIngredients();
+    this.isLoading = true;
+    this.ingredientService.getAll().subscribe({
+      next: (data) => {
+        this.ingredients = data;
+        this.updatePaginatedIngredients();
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error('Failed to fetch ingredients:', error);
+        this.isLoading = false;
+      }
     });
   }
 

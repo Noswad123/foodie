@@ -1,0 +1,21 @@
+<div class="list-container">
+  <h2>{{ title }}</h2>
+
+    <div *ngIf="items.length > 0; else noItems">
+      <ul>
+        <li *ngFor="let item of items">
+          <a [routerLink]="[route, item.id]">{{ item.name }}</a>
+        </li>
+      </ul>
+
+      <!-- <div class="pagination-controls">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+      </div> -->
+    </div>
+
+    <ng-template #noItems>
+      <p>No ingredients available.</p>
+    </ng-template>
+</div>

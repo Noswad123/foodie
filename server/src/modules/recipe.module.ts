@@ -1,4 +1,3 @@
-// src/recipe/recipe.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Recipe } from '../entities/recipe.entity';
