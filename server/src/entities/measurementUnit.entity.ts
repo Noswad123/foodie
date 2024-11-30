@@ -5,5 +5,6 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 't
 export class MeasurementUnit {
   @PrimaryGeneratedColumn()
   id: number;
-  name:string;
+  name: string;
+  abbreviation: string;
 }

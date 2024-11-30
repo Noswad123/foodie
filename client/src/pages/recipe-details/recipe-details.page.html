@@ -1,7 +1,22 @@
-<div *ngIf="item; else noRecipe">
-  <h1>{{ item.name }}</h1>
-</div>
+<mat-card>
+  <div *ngIf="item; else noRecipe">
+    <mat-card-title>{{ item.name }}</mat-card-title>
+    <mat-card-content>
+      <p>
+        <span *ngIf="item.prepTime"> prep time: {{item.prep_time}} </span>
+        <span *ngIf="item.cookTime"> cook time: {{item.cook_time}} </span>
+        <span *ngIf="item.servingSize"> serving size: {{item.servingSize}}</span>
+      </p>
+      <p>Ingredients:</p>
+      <ul>
+        <!-- <li *ngFor="let ingredient of item.ingredients">{{ ingredient }}</li> -->
+      </ul>
+      <p>Instructions:</p>
+        {{item.instructions}}
+    </mat-card-content>
+  </div>
 
-<ng-template #noRecipe>
-  <p>This recipe doesn't exist.</p>
-</ng-template>
+  <ng-template #noRecipe>
+    <p>This recipe doesn't exist.</p>
+  </ng-template>
+</mat-card>

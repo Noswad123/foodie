@@ -13,11 +13,14 @@ export class Recipe {
   @Column({ nullable: true })
   instructions: string;
 
-  @Column({ nullable: true })
-  prep_time: number;
+  @Column({ nullable: true, name: 'prep_time' })
+  prepTime: number;
 
-  @Column({ nullable: true })
-  cooking_time: number;
+  @Column({ nullable: true, name: 'serving_size' })
+  servingSize: number;
+
+  @Column({ nullable: true, name: 'cook_time' })
+  cookTime: number;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
@@ -29,6 +32,6 @@ export class Recipe {
   @JoinColumn({ name: 'type_id' })
   type: RecipeType;
 
-  @OneToMany(() => RecipeIngredient, (recipeIngredient) => recipeIngredient.recipe)
+  @OneToMany(() => RecipeIngredient, (recipeIngredient) => recipeIngredient.recipe, {eager: true})
   recipeIngredients: RecipeIngredient[];
 }

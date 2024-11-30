@@ -1,8 +1,52 @@
 -- insert into recipes (name, type_id)
 --   values
 
-select recipes.id, recipes.name as recipe, recipe_types.name as type from recipes
-join recipe_types on recipes.type_id=recipe_types.id;
+-- select recipes.id, recipes.name as recipe, recipe_types.name as type from recipes
+-- join recipe_types on recipes.type_id=recipe_types.id;
+
+-- INSERT INTO measurement_units (name, abbreviation) VALUES
+-- ('teaspoon', 'tsp'),
+-- ('tablespoon', 'tbsp'),
+-- ('fluid ounce', 'fl oz'),
+-- ('cup', 'c'),
+-- ('pint', 'pt'),
+-- ('quart', 'qt'),
+-- ('gallon', 'gal'),
+-- ('milliliter', 'ml'),
+-- ('liter', 'l'),
+-- ('gram', 'g'),
+-- ('kilogram', 'kg'),
+-- ('ounce', 'oz'),
+-- ('dash', 'dash'),
+-- ('pinch', 'pinch'),
+-- ('each', 'ea'),
+-- ('pound', 'lb');
+
+-- select * from measurement_units;
+
+select ri.id, r.name, i.id, i.name, quantity, ri.measurement_unit_id, mu.name from recipe_ingredients ri
+left join ingredients i on ri.ingredient_id=i.id
+left join recipes r on ri.recipe_id=r.id
+left join measurement_units mu on ri.measurement_unit_id=mu.id;
+
+-- INSERT INTO recipe_ingredients (recipe_id, ingredient_id, measurement_unit_id, quantity)
+-- VALUES
+-- ((SELECT id FROM recipes WHERE name = 'Margarita'),
+--  (SELECT id FROM ingredients WHERE name = 'Tequila'),
+--  (SELECT id FROM measurement_units WHERE abbreviation = 'oz'),
+--  1.5),
+-- ((SELECT id FROM recipes WHERE name = 'Margarita'),
+--  (SELECT id FROM ingredients WHERE name = 'Triple Sec'),
+--  (SELECT id FROM measurement_units WHERE abbreviation = 'oz'),
+--  .5),
+-- ((SELECT id FROM recipes WHERE name = 'Margarita'),
+--  (SELECT id FROM ingredients WHERE name = 'Lime Juice'),
+--  (SELECT id FROM measurement_units WHERE abbreviation = 'oz'),
+--  .5),
+-- ((SELECT id FROM recipes WHERE name = 'Margarita'),
+--  (SELECT id FROM ingredients WHERE name = 'Salt'),
+--  (SELECT id FROM measurement_units WHERE name = 'pinch'),
+--  1);
 
 -- select id, name from recipes;
 
@@ -11,7 +55,7 @@ join recipe_types on recipes.type_id=recipe_types.id;
 
 -- insert into ingredient_types (name) values ();
 --
--- UPDATE ingredient_typesi SET name='fruits' WHERE id=1;
+-- UPDATE ingredient_types SET name='fruits' WHERE id=1;
 
 
 -- UPDATE ingredients SET ingredient_type_id=7 WHERE id in (12);

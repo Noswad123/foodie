@@ -46,16 +46,20 @@
 
 
 -- Insert measurement units, avoiding duplicates using INSERT OR IGNORE
--- INSERT OR IGNORE INTO measurement_units (name)
--- VALUES
---     ('cup'),
---     ('teaspoon'),
---     ('tablespoon'),
---     ('ounce'),
---     ('gram'),
---     ('dozen'),
---     ('pound'),
---     ('each');
+-- INSERT INTO measurement_units (unit, abbreviation) VALUES
+-- ('teaspoon', 'tsp'),
+-- ('tablespoon', 'tbsp'),
+-- ('fluid ounce', 'fl oz'),
+-- ('cup', 'c'),
+-- ('pint', 'pt'),
+-- ('quart', 'qt'),
+-- ('gallon', 'gal'),
+-- ('milliliter', 'ml'),
+-- ('liter', 'l'),
+-- ('gram', 'g'),
+-- ('kilogram', 'kg'),
+-- ('ounce', 'oz'),
+-- ('pound', 'lb');
 
 -- Insert more ingredients, using SELECT to retrieve type and measurement unit IDs dynamically
 -- INSERT INTO ingredients (name, ingredient_type_id, measurement_unit_id, notes)

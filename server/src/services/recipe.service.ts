@@ -15,6 +15,14 @@ export class RecipeService {
   }
 
   async findOne(id: number): Promise<Recipe> {
-    return await this.recipeRepository.findOne({where: {id}});
+    return await this.recipeRepository.findOne({
+      where: {id},
+      relations: {
+      recipeIngredients: {
+          ingredient: true,
+          measurementUnit: true,
+        }
+      }
+    });
   }
 }

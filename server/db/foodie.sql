@@ -26,6 +26,7 @@ CREATE TABLE ingredients (
 CREATE TABLE measurement_units (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL
+    abbreviation TEXT NOT NULL
 );
 
 -- Name: recipe_ingredients; Type: TABLE

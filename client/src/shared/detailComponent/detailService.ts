@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 export abstract class DetailsService {
 
-  constructor(private http: HttpClient, private apiUrl: string) { }
+  constructor(protected http: HttpClient, protected apiUrl: string) { }
 
   get(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
