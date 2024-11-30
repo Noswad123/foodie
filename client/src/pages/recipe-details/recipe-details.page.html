@@ -3,13 +3,16 @@
     <mat-card-title>{{ item.name }}</mat-card-title>
     <mat-card-content>
       <p>
-        <span *ngIf="item.prepTime"> prep time: {{item.prep_time}} </span>
-        <span *ngIf="item.cookTime"> cook time: {{item.cook_time}} </span>
+        <span *ngIf="item.prepTime"> prep time: {{item.prepTime}} </span>
+        <span *ngIf="item.cookTime"> cook time: {{item.cookTime}} </span>
         <span *ngIf="item.servingSize"> serving size: {{item.servingSize}}</span>
       </p>
       <p>Ingredients:</p>
       <ul>
-        <!-- <li *ngFor="let ingredient of item.ingredients">{{ ingredient }}</li> -->
+        <li *ngFor="let ingredient of item.recipeIngredients">
+          {{ ingredient.ingredient.name }}
+          {{ingredient.quantity}}
+          {{ingredient.measurementUnit?.abbreviation}}</li>
       </ul>
       <p>Instructions:</p>
         {{item.instructions}}

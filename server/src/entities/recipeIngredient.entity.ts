@@ -16,7 +16,7 @@ export class RecipeIngredient {
   @JoinColumn({ name: 'ingredient_id' })
   ingredient: Ingredient;
 
-  @ManyToOne(() => MeasurementUnit)
+  @ManyToOne(() => MeasurementUnit, { eager: true })
   @JoinColumn({ name: 'measurement_unit_id' })
   measurementUnit: MeasurementUnit;
 
