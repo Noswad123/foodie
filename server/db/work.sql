@@ -22,12 +22,12 @@
 -- ('each', 'ea'),
 -- ('pound', 'lb');
 
-select * from measurement_units;
+-- select * from measurement_units;
 
--- select ri.id, r.name, i.id, i.name, quantity, ri.measurement_unit_id, mu.name from recipe_ingredients ri
--- left join ingredients i on ri.ingredient_id=i.id
--- left join recipes r on ri.recipe_id=r.id
--- left join measurement_units mu on ri.measurement_unit_id=mu.id;
+select ri.id, r.name, i.id, i.name, quantity, ri.measurement_unit_id, mu.name from recipe_ingredients ri
+left join ingredients i on ri.ingredient_id=i.id
+left join recipes r on ri.recipe_id=r.id
+left join measurement_units mu on ri.measurement_unit_id=mu.id;
 
 -- INSERT INTO recipe_ingredients (recipe_id, ingredient_id, measurement_unit_id, quantity)
 -- VALUES

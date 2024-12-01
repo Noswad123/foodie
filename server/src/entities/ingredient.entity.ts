@@ -1,6 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, UpdateDateColumn, CreateDateColumn } from 'typeorm';
 import { IngredientType } from './ingredientType.entity';
-import { MeasurementUnit } from './measurementUnit.entity';
 
 @Entity('ingredients')
 export class Ingredient {
@@ -13,18 +12,14 @@ export class Ingredient {
   @Column({ nullable: true })
   notes: string;
 
-  @Column()
-  created_at: Date;
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
 
-  @Column()
-  updated_at: Date;
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 
-  @ManyToOne(() => IngredientType)
+  @ManyToOne(() => IngredientType, { nullable: true })
   @JoinColumn({ name: 'ingredient_type_id' })
   ingredientType: IngredientType;
-
-  @ManyToOne(() => MeasurementUnit)
-  @JoinColumn({ name: 'measurement_unit_id' })
-  measurementUnit: MeasurementUnit;
 }
 

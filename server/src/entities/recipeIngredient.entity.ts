@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { Recipe } from './recipe.entity';
 import { Ingredient } from './ingredient.entity';
 import { MeasurementUnit } from './measurementUnit.entity';
@@ -19,6 +19,12 @@ export class RecipeIngredient {
   @ManyToOne(() => MeasurementUnit, { eager: true })
   @JoinColumn({ name: 'measurement_unit_id' })
   measurementUnit: MeasurementUnit;
+
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 
   @Column({ type: 'real' })
   quantity: number;

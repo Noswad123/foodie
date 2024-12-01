@@ -1,7 +1,7 @@
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { Recipe, Ingredient, RecipeIngredient, MeasurementUnit } from '../entities';
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class SeedService {
@@ -9,49 +9,63 @@ export class SeedService {
   constructor(
     @InjectRepository(Recipe)
     private recipeRepository: Repository<Recipe>,
-    @InjectRepository(Ingredient)
-    private ingredientRepository: Repository<Ingredient>,
-    @InjectRepository(RecipeIngredient)
-    private recipeIngredientRepository: Repository<RecipeIngredient>,
     @InjectRepository(MeasurementUnit)
-    private measurementUnitRepository: Repository<MeasurementUnit>
+    private measurementUnitRepository: Repository<MeasurementUnit>,
+    @InjectDataSource() private dataSource: DataSource,
   ) {
   }
-  async  seed(recipeData) {
+  async seed(recipeData) {
     if (this.units.length === 0) {
       this.units = await this.measurementUnitRepository.find();
-      console.log(this.units);
     }
-
-    const recipe = await this.createRecipe(recipeData);
-    await this.createIngredients(recipeData, recipe);
-
-    console.log('Seeding complete!');
+    const existingRecipe = await this.recipeRepository.findOne({where: {name: recipeData.name}});
+    if (existingRecipe) {
+      console.log('Recipe already exists');
+      return;
+    }
+    const recipe = await this.recipeRepository.create(recipeData);
+    const recipeEntity = await this.recipeRepository.save(recipe);
+    await this.createIngredients(recipeData.ingredients, recipeEntity);
 }
 
-  async createRecipe(recipeData) {
-    const recipe = new Recipe();
-    recipe.name = recipeData.title;
-    recipe.servingSize = recipeData.servings;
-    recipe.prepTime = recipeData.prepTime;
-    recipe.instructions = recipeData.instructions;
-    // const savedRecipe = await this.recipeRepository.save(recipe);
-    return recipe;
-  }
+async createIngredients(ingredients, recipe) {
+  const parsedIngredients = await this.parseIngredients(ingredients);
 
-  async createIngredients(recipeData, recipe) {
-    this.parseIngredients(recipe.ingredients);
-  }
+  await this.dataSource.transaction(async manager => {
+    const recipeIngredients = await Promise.all(parsedIngredients.filter(ingredient => !!ingredient.name).map(async parsedIngredient => {
+      let ingredientEntity = await manager.findOneBy(Ingredient, {
+        name: parsedIngredient.name
+      });
+
+      if (!ingredientEntity) {
+        ingredientEntity = manager.create(Ingredient, {
+          name: parsedIngredient.name,
+        });
+        await manager.save(ingredientEntity);
+      }
+      const measurementUnit = await this.measurementUnitRepository.findOne({where: {id: parsedIngredient.measurementUnitId}});
+
+      const recipeIngredientEntity = manager.create(RecipeIngredient, {
+        ingredient: ingredientEntity,
+        recipe,
+        measurementUnit,
+        quantity: parsedIngredient.quantity
+      });
+
+      return manager.save(recipeIngredientEntity);
+    }));
+
+    return recipeIngredients;
+  });
+}
 
   parseIngredients(ingredients) {
-        // Regular expression to capture the quantity, unit (if exists), and ingredient name
         const pattern = /(\d*\.?\d+)\s*([a-zA-Z]+)?\s*(.*)/;
 
-        // Set of common units of measure
-        const units = new Set(
+        const units = new Set([
           ...this.units.map(unit => unit.name),
           ...this.units.map(unit => unit.abbreviation)
-        );
+        ]);
 
         const parsedIngredients = [];
 
@@ -63,13 +77,14 @@ export class SeedService {
                 let name = match[3];
 
                 if (!unit || !units.has(unit)) {
+                    name = unit+ " " + name;
                     unit = "each";
                 }
-
                 const measurementUnitId = this.units.find(
                   u => unit === u.abbreviation || unit===u.name
                 ).id;
                 parsedIngredients.push({
+                    quantity,
                     measurementUnitId,
                     name: name.trim(),
                 });

@@ -25,4 +25,15 @@ export class RecipeService {
       }
     });
   }
+
+  async create(recipeData) {
+    const recipe = new Recipe();
+    recipe.name = recipeData.title;
+    recipe.servingSize = recipeData.servings;
+    recipe.prepTime = recipeData.prepTime;
+    recipe.instructions = recipeData.instructions;
+    const savedRecipe = await this.recipeRepository.save(recipe);
+    console.log('Recipe created', {name: savedRecipe.name, id: savedRecipe.id});
+    return savedRecipe;
+  }
 }
