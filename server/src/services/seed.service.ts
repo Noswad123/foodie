@@ -1,14 +1,16 @@
 import { DataSource, Repository } from 'typeorm';
-import { Recipe, Ingredient, RecipeIngredient, MeasurementUnit } from '../entities';
+import { Ingredient, RecipeIngredient, MeasurementUnit } from '../entities';
 import { Injectable } from '@nestjs/common';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { RecipeService } from './recipe.service';
+import { IngredientService } from './ingredient.service';
 
 @Injectable()
 export class SeedService {
   units: MeasurementUnit[] = [];
   constructor(
     private recipeService: RecipeService,
+    private ingredientService: IngredientService,
     @InjectRepository(MeasurementUnit)
     private measurementUnitRepository: Repository<MeasurementUnit>,
     @InjectDataSource() private dataSource: DataSource,
@@ -18,16 +20,20 @@ export class SeedService {
     if (this.units.length === 0) {
       this.units = await this.measurementUnitRepository.find();
     }
+    const recipes = Array.isArray(recipeData) ? recipeData : [recipeData];
+    await Promise.all(recipes.map(async recipe => this.createRecipeAndIngredients(recipe)));
+}
 
-    const recipeEntity = await this.recipeService.create(recipeData);
+async createRecipeAndIngredients(recipe) {
+    const recipeEntity = await this.recipeService.create(recipe);
     if (!recipeEntity) {
       return;
     }
-    await this.createIngredients(recipeData.ingredients, recipeEntity);
+    await this.createIngredients(recipe.ingredients, recipeEntity);
 }
 
 async createIngredients(ingredients, recipe) {
-  const parsedIngredients = await this.parseIngredients(ingredients);
+  const parsedIngredients = await this.ingredientService.parseIngredients(ingredients);
 
   await this.dataSource.transaction(async manager => {
     const recipeIngredients = await Promise.all(parsedIngredients.filter(ingredient => !!ingredient.name).map(async parsedIngredient => {
@@ -56,39 +62,4 @@ async createIngredients(ingredients, recipe) {
     return recipeIngredients;
   });
 }
-
-  parseIngredients(ingredients) {
-        const pattern = /(\d*\.?\d+)\s*([a-zA-Z]+)?\s*(.*)/;
-
-        const units = new Set([
-          ...this.units.map(unit => unit.name),
-          ...this.units.map(unit => unit.abbreviation)
-        ]);
-
-        const parsedIngredients = [];
-
-        ingredients.forEach(ingredient => {
-            const match = ingredient.match(pattern);
-            if (match) {
-                const quantity = match[1];
-                let unit = match[2];
-                let name = match[3];
-
-                if (!unit || !units.has(unit)) {
-                    name = unit+ " " + name;
-                    unit = "each";
-                }
-                const measurementUnitId = this.units.find(
-                  u => unit === u.abbreviation || unit===u.name
-                ).id;
-                parsedIngredients.push({
-                    quantity,
-                    measurementUnitId,
-                    name: name.trim(),
-                });
-            }
-        });
-        console.log(parsedIngredients);
-        return parsedIngredients;
-  }
 }
