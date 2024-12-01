@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { EntityManager, Repository } from 'typeorm';
 import { Ingredient, MeasurementUnit } from '../entities';
 
 @Injectable()
@@ -21,9 +21,10 @@ export class IngredientService {
     return await this.ingredientRepository.findOne({where: {id}});
   }
 
-  async parseIngredients(ingredients) {
+  async parseIngredients(ingredients, transactionManager?: EntityManager) {
+    const manager = transactionManager || this.measurementUnitRepository.manager;
     if (this.units.length === 0) {
-      this.units = await this.measurementUnitRepository.find();
+      this.units = await manager.find(MeasurementUnit);
     }
     const pattern = /(\d*\.?\d+)\s*([a-zA-Z]+)?\s*(.*)/;
 

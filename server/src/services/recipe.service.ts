@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { EntityManager, Repository } from 'typeorm';
 import { Recipe } from '../entities';
 
 @Injectable()
@@ -26,27 +26,28 @@ export class RecipeService {
     });
   }
 
-  async create(recipeData) {
-    const existingRecipe = await this.recipeRepository.findOne({where: {name: recipeData.name}});
+  async create(recipeData, transactionManager?: EntityManager) {
+    const manager = transactionManager || this.recipeRepository.manager;
+    const existingRecipe = await manager.findOne(Recipe, {where: {name: recipeData.name}});
     if (existingRecipe) {
       console.log('Recipe already exists');
       return;
     }
-    
-    const recipe = new Recipe();
-    recipe.name = recipeData.name;
-    recipe.servingSize = recipeData.servings;
-    recipe.prepTime = recipeData.prepTime;
-    recipe.cookTime = recipeData.cookTime;
-    recipe.instructions = this.formatInstructions(recipeData.instructions);
-    const createdRecipe = await this.recipeRepository.create(recipe);
-    const savedRecipe = await this.recipeRepository.save(createdRecipe);
+
+    const recipe = manager.create(Recipe, {
+      name: recipeData.name,
+      servingSize: recipeData.servingSize,
+      prepTime: recipeData.prepTime,
+      cookTime: recipeData.cookTime,
+      instructions: this.formatInstructions(recipeData.instructions)
+    });
+    const savedRecipe = await manager.save(recipe);
     console.log('Recipe created', {name: savedRecipe.name, id: savedRecipe.id});
     return savedRecipe;
   }
 
   formatInstructions(instructions: any) {
-    if(typeof instructions === 'string') {
+    if (typeof instructions === 'string') {
       return instructions;
     } else {
       return JSON.stringify(instructions);
