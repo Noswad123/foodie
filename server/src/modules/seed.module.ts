@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { SeedService } from 'src/services';
+import { RecipeService, SeedService } from 'src/services';
 import { SeedController } from 'src/controllers';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Ingredient, MeasurementUnit, Recipe, RecipeIngredient } from 'src/entities';
@@ -11,7 +11,7 @@ import { Ingredient, MeasurementUnit, Recipe, RecipeIngredient } from 'src/entit
     RecipeIngredient,
     MeasurementUnit
   ])],
-  providers: [SeedService],
+  providers: [SeedService, RecipeService],
   controllers: [SeedController],
 })
 export class SeedModule {}

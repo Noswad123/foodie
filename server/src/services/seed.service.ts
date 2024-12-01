@@ -2,13 +2,13 @@ import { DataSource, Repository } from 'typeorm';
 import { Recipe, Ingredient, RecipeIngredient, MeasurementUnit } from '../entities';
 import { Injectable } from '@nestjs/common';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
+import { RecipeService } from './recipe.service';
 
 @Injectable()
 export class SeedService {
   units: MeasurementUnit[] = [];
   constructor(
-    @InjectRepository(Recipe)
-    private recipeRepository: Repository<Recipe>,
+    private recipeService: RecipeService,
     @InjectRepository(MeasurementUnit)
     private measurementUnitRepository: Repository<MeasurementUnit>,
     @InjectDataSource() private dataSource: DataSource,
@@ -18,13 +18,11 @@ export class SeedService {
     if (this.units.length === 0) {
       this.units = await this.measurementUnitRepository.find();
     }
-    const existingRecipe = await this.recipeRepository.findOne({where: {name: recipeData.name}});
-    if (existingRecipe) {
-      console.log('Recipe already exists');
+
+    const recipeEntity = await this.recipeService.create(recipeData);
+    if (!recipeEntity) {
       return;
     }
-    const recipe = await this.recipeRepository.create(recipeData);
-    const recipeEntity = await this.recipeRepository.save(recipe);
     await this.createIngredients(recipeData.ingredients, recipeEntity);
 }
 

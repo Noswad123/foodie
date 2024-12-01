@@ -27,13 +27,29 @@ export class RecipeService {
   }
 
   async create(recipeData) {
+    const existingRecipe = await this.recipeRepository.findOne({where: {name: recipeData.name}});
+    if (existingRecipe) {
+      console.log('Recipe already exists');
+      return;
+    }
+    
     const recipe = new Recipe();
-    recipe.name = recipeData.title;
+    recipe.name = recipeData.name;
     recipe.servingSize = recipeData.servings;
     recipe.prepTime = recipeData.prepTime;
-    recipe.instructions = recipeData.instructions;
-    const savedRecipe = await this.recipeRepository.save(recipe);
+    recipe.cookTime = recipeData.cookTime;
+    recipe.instructions = this.formatInstructions(recipeData.instructions);
+    const createdRecipe = await this.recipeRepository.create(recipe);
+    const savedRecipe = await this.recipeRepository.save(createdRecipe);
     console.log('Recipe created', {name: savedRecipe.name, id: savedRecipe.id});
     return savedRecipe;
+  }
+
+  formatInstructions(instructions: any) {
+    if(typeof instructions === 'string') {
+      return instructions;
+    } else {
+      return JSON.stringify(instructions);
+    }
   }
 }
