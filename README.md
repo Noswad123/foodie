@@ -70,6 +70,9 @@ npm ci --omit=dev
 ## Start the app using it's 'main' entry
 node .
 ```
+## Contributing
+
+Coming soon...
 
 ## Future adds
 - tags
