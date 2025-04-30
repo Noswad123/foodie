@@ -1,0 +1,37 @@
+{
+  "name": "Mediterranean-Style Chickpea & Couscous Bowls with Roasted Zucchini & Feta",
+  "servingSize": 4,
+  "prepTime": "2400",
+  "ingredients": [
+    "15.5 oz Chickpeas",
+    "1 cup Pearl Couscous",
+    "2 Zucchini",
+    ".5 lb Grape Tomatoes",
+    "2 Persian Cucumbers",
+    "1 Lemon",
+    "2 clove Garlic",
+    "3 oz Feta Cheese",
+    ".5 cup Tzatziki",
+    "1 oz Pitted Niçoise Olives",
+    ".25 tsp Crushed Red Pepper Flakes",
+    "1 tsp Whole Dried Oregano"
+  ],
+  "instructions": [
+    {
+      "order": 1,
+      "instruction": "Prepare ingredients, roast zucchini."
+    },
+    {
+      "order": 2,
+      "instruction": "Cook couscous."
+    },
+    {
+      "order": 3,
+      "instruction": "Cook chickpeas."
+    },
+    {
+      "order": 4,
+      "instruction": "Combine ingredients and serve with toppings."
+    }
+  ]
+}

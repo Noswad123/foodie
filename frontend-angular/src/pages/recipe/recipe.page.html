@@ -1,0 +1,31 @@
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="paginatedRecipes.length > 0; else noRecipes">
+  <mat-card>
+    <mat-card-title>Recipes</mat-card-title>
+    <mat-card-content>
+      <app-item-list [items]="paginatedRecipes" route="/recipe-details"></app-item-list>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="pagination-controls">
+    <button mat-raised-button color="primary" (click)="prevPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button mat-raised-button color="accent" (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+</div>
+
+<ng-template #noRecipes>
+  <mat-card>
+    <mat-card-content>
+      <p>No recipes available.</p>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+

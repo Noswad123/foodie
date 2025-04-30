@@ -1,0 +1,36 @@
+{
+  "name": "Creamy Pesto Chicken & Orzo with Capers & Currants",
+  "servingSize": 4,
+  "prepTime": "1800",
+  "ingredients": [
+    "18 oz Chicken Breast",
+    ".5 lb Orzo Pasta",
+    ".75 lb Carrots",
+    "5 oz Baby Spinach",
+    ".5 lb Grape Tomatoes",
+    "2 clove Garlic",
+    "1 tbsp Capers",
+    "2 tbsp Dried Currants",
+    ".333 cup Basil Pesto",
+    ".25 cup Mayonnaise",
+    ".25 tsp Crushed Red Pepper Flakes"
+  ],
+  "instructions": [
+    {
+      "order": 1,
+      "instruction": "Prepare and boil orzo; prepare sauce with pesto and mayo."
+    },
+    {
+      "order": 2,
+      "instruction": "Cook vegetables in a pan."
+    },
+    {
+      "order": 2,
+      "instruction": "Cook chicken in the same pan."
+    },
+    {
+      "order": 3,
+      "instruction": "Finish the pasta and combine with sauce and vegetables."
+    }
+  ]
+}

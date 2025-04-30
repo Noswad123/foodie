@@ -1,0 +1,41 @@
+{
+  "name": "Pesto Farro Bowls & Parmesan Fried Eggs with Zucchini, Tomatoes & Calabrian Mayo",
+  "servingSize": 4,
+  "prepTime": "35 minutes",
+  "ingredients": [
+    "4 Salmon Fillets",
+    "4 Eggs",
+    "1 cup Semi-Pearled Farro",
+    "2 Zucchini",
+    "1 Onion",
+    ".5 lb Grape Tomatoes",
+    "2 Bell Peppers",
+    ".333 cup Basil Pesto",
+    ".5 cup Grated Parmesan Cheese",
+    "1 Tbsp Calabrian Chile Paste",
+    ".25 cup Mayonnaise",
+    ".25 cup Roasted Sunflower Seeds"
+  ],
+  "instructions": [
+    {
+      "order": 1,
+      "instruction": "Cook farro."
+    },
+    {
+      "order": 2,
+      "instruction": "Prepare ingredients and make Calabrian mayo."
+    },
+    {
+      "order": 3,
+      "instruction": "Toast sunflower seeds and cook vegetables."
+    },
+    {
+      "order": 4,
+      "instruction": "Cook salmon and fry parmesan eggs."
+    },
+    {
+      "order": 5,
+      "instruction": "Combine and serve."
+    }
+  ]
+}

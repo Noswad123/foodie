@@ -1,0 +1,39 @@
+{
+  "name": "Chili Crisp Beef Lo Mein with Bok Choy & Toasted Peanuts",
+  "servingSize": "4",
+  "prepTime": "1800",
+  "ingredients": [
+      "18 oz Ground Beef",
+      "1 lb Lo Mein Noodles",
+      "15 oz Baby Bok Choy",
+      "2 Scallions",
+      "1 Lime",
+      "2 tbsp Orange Marmalade",
+      "6 tbsp Soy Glaze",
+      "2 tbsp Yuzu Kosho",
+      ".25 cup Roasted Peanuts",
+      "4 tsp Chili Crisp Seasoning"
+    ],
+  "instructions": [
+    {
+      "order": 1,
+      "instruction": "Prepare the ingredients & make the sauce. Fill a large pot 3/4 of the way up with water; season with salt if desired. Cover and heat to boiling on high. Wash and dry the fresh produce. Thinly slice the scallions, separating the white bottoms and hollow green tops. Cut off and discard the root ends of the bok choy; roughly chop. Roughly chop the peanuts. Using a zester or the small side of a box grater, finely grate the lime to get 2 teaspoons of zest. Halve the lime crosswise; squeeze the juice into a bowl. To the bowl of lime juice, add the soy glaze, yuzu kosho, and orange marmalade; stir to thoroughly combine."
+    },
+    {
+      "order": 2,
+      "instruction": "Make the chili-lime peanuts. In a large pan (nonstick, if you have one), heat 2 tablespoons of olive oil on medium-high until hot. Add the chopped peanuts, lime zest, and as much of the chili crisp as you'd like, depending on how spicy you'd like the dish to be. Cook, stirring frequently, 1 to 2 minutes, or until lightly toasted and fragrant. Transfer to a bowl. Wipe out the pan."
+    },
+    {
+      "order": 3,
+      "instruction": "Cook the beef & bok choy. In the same pan, heat a drizzle of olive oil on medium-high until hot. Add the beef. Cook, without stirring, 3 to 4 minutes, or until lightly browned. Add the chopped bok choy and sliced white bottoms of the scallions. Cook, stirring frequently and breaking the meat apart with a spoon, 2 to 3 minutes, or until the vegetables are softened and the beef is browned and cooked through. Turn off the heat. Taste, then season with salt and pepper if desired. Carefully drain off and discard any excess oil."
+    },
+    {
+      "order": 4,
+      "instruction": "Cook the noodles. Meanwhile, add the noodles to the pot of boiling water, stirring gently to separate. Cook, stirring occasionally, 2 to 4 minutes, or until tender. Turn off the heat. Drain thoroughly and rinse under warm water 30 seconds to 1 minute to prevent sticking. Return to the pot."
+    },
+    {
+      "order": 5,
+      "instruction": "Finish the noodles & serve your dish. To the pot of cooked noodles, add the cooked beef and bok choy and sauce. Cook on medium-high, stirring frequently, 2 to 3 minutes, or until combined and the noodles are thoroughly coated. Turn off the heat. Taste, then season with salt and pepper if desired. Serve the finished noodles garnished with the chili-lime peanuts and sliced green tops of the scallions. Enjoy!"
+    }
+  ]
+}

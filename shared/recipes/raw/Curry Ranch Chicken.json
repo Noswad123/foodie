@@ -1,0 +1,40 @@
+{
+  "name": "Curry Ranch Chicken with Sesame Vegetable Rice & Peanuts",
+  "servingSize": 4,
+  "prepTime": "1800",
+  "ingredients": [
+    "18 oz Boneless Chicken Breast Pieces",
+    "1 cup Long Grain White Rice",
+    ".75 lb Carrot",
+    "2 Bell Pepper",
+    "2 clove Garlic",
+    "3 tbsp Roasted Peanuts",
+    "1½ tbsp Yellow Curry Paste",
+    "2 tsp Vadouvan Curry Powder",
+    "2 tbsp Sesame Oil",
+    ".25 cup Ranch Dressing",
+    "4 tsp Honey"
+  ],
+  "instructions": [
+    {
+      "order": 1,
+      "instruction": "Cook rice."
+    },
+    {
+      "order": 2,
+      "instruction": "Prepare ingredients and make sauce."
+    },
+    {
+      "order": 3,
+      "instruction": "Cook vegetables."
+    },
+    {
+      "order": 4,
+      "instruction": "Cook chicken and combine with sauce."
+    },
+    {
+      "order": 5,
+      "instruction": "Finish rice and serve."
+    }
+  ]
+}

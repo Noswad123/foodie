@@ -1,0 +1,22 @@
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="paginatedIngredients.length > 0">
+  <mat-card>
+    <mat-card-title>Ingredients</mat-card-title>
+    <mat-card-content>
+      <app-item-list [items]="paginatedIngredients" route="/ingredient-details"></app-item-list>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="pagination-controls">
+    <button mat-raised-button color="primary" (click)="prevPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button mat-raised-button color="accent" (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+</div>

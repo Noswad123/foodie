@@ -1,0 +1,16 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <mat-toolbar class="custom-toolbar">
+      <div class="left-align">
+        <span class="logo" routerLink="/">Foodie 🍗</span>
+        <a mat-button routerLink="/recipes">Recipes</a>
+        <a mat-button routerLink="/ingredients">Ingredients</a>
+      </div>
+      <div class="right-align">
+        <a mat-button routerLink="/login">Login</a>
+      </div>
+    </mat-toolbar>
+    <!-- TRANSCLUSION -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

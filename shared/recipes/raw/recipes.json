@@ -1,0 +1,88 @@
+{
+  "recipes":[
+    {
+      "name": "Sheet Pan Soy-Glazed Pork Meatloaf with Sesame Roasted Potatoes & Broccoli",
+      "cookTime": "2700",
+      "servingSize": 4,
+      "ingredients": [
+        "18 oz Antibiotic-Free Ground Pork",
+        "1 lb Broccoli",
+        "1.25 lbs Potato",
+        "3 tbsp Soy Glaze",
+        "4 tbsp Hoisin Sauce",
+        "1 tbsp Sambal Oelek",
+        "1 tbsp Sesame Oil",
+        "1.25 cup Panko Breadcrumbs",
+        ".333 cup East Asian-Style Sautéed Aromatics",
+        "1 tsp Black & White Sesame Seeds"
+      ]
+    },
+    {
+      "name": "Spicy Pork Sausage & Mushroom Gnocchi with Spinach",
+      "cookTime": "2400",
+      "servingSize": 4,
+      "ingredients": [
+        "20 oz Hot Italian Pork Sausage",
+        "5 oz Baby Spinach",
+        ".25 lb Mushrooms",
+        ".666 cup Béchamel Sauce",
+        ".333 cup Mushroom Duxelles",
+        "4 tbsp Crème Fraîche",
+        "1.5 lbs Gnocchi"
+      ]
+    },
+    {
+      "name": "Spicy Sausage Rigatoni with Spinach & Romano Cheese",
+      "cookTime": "900",
+      "servingSize": 4,
+      "ingredients": [
+        "20 oz Hot Italian Pork Sausage",
+        "20 oz Cooked Rigatoni Pasta",
+        "6 oz Baby Spinach",
+        "16 oz Tomato Sauces",
+        "1 tbsp Calabrian Chile Paste",
+        ".5 cup Grated Romano Cheese",
+        ".25 cup Mascarpone Cheese"
+      ]
+    },
+    {
+      "name": "Sweet & Spicy Sheet Pan Meatloaf with Roasted Vegetables, Parmesan & Dijon Sour Cream",
+      "cookTime": "2700",
+      "servingSize": 4,
+      "ingredients": [
+        "18 oz Ground Beef",
+        "1 Red Onion",
+        "1.25 lb Potato",
+        "2 Bell Pepper",
+        "1 oz Raspberry Jalapeño Spread",
+        "3 tbsp Ketchup",
+        ".25 cup Grated Parmesan Cheese",
+        "1 tbsp Dijonnaise",
+        ".25 cup Sour Cream",
+        "1 Egg",
+        ".5 cup Panko Breadcrumbs",
+        "1.5 tsp Calabrian Chile Paste",
+        "1 tbsp Smoky Spice Blend"
+      ]
+    },
+    {
+      "name": "Sweet Potato & Black Bean Enchiladas with Monterey Jack Cheese & Cilantro Guacamole",
+      "cookTime": "2400",
+      "servingSize": 4,
+      "ingredients": [
+        "10 oz Pork Chorizo",
+        "1 lb Sweet Potatoes",
+        "2 Zucchini",
+        "1 Yellow Onion",
+        ".5 cup Sour Cream",
+        ".333 cup Guajillo Chile Pepper Sauce",
+        ".5 cup Guacamole",
+        ".25 cup Cilantro Sauce",
+        "3 tbsp Pepper Sofrito",
+        "8 Flour Tortillas",
+        "4 oz Shredded Monterey Jack Cheese",
+        "1 Lime"
+      ]
+    }
+  ]
+}
