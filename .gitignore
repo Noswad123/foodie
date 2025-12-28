@@ -1,0 +1,12 @@
+.env.*
+**/__pycache__/
+
+# Python
+**/__pycache__/
+**/.coverage
+**/.venv
+**/.pytest_cache
+**/.ruff_cache
+**/dist
+**/.env
+**/uv.lock
