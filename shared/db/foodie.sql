@@ -1,3 +1,4 @@
+-- sqlite
 -- Name: cooking_techniques; Type: TABLE
 CREATE TABLE cooking_techniques (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,7 +26,7 @@ CREATE TABLE ingredients (
 -- Name: measurement_units; Type: TABLE
 CREATE TABLE measurement_units (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL
+    name TEXT NOT NULL,
     abbreviation TEXT NOT NULL
 );
 

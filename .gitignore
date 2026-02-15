@@ -1,12 +1,18 @@
-.env.*
-**/__pycache__/
+.env
+.env.local
+.DS_Store
 
 # Python
-**/__pycache__/
-**/.coverage
-**/.venv
-**/.pytest_cache
-**/.ruff_cache
-**/dist
-**/.env
-**/uv.lock
+__pycache__/
+
+# Go
+backend/bin/
+backend/*.exe
+backend/*.test
+backend/*.out
+
+# Node / Svelte
+frontend/node_modules/
+frontend/.svelte-kit/
+frontend/build/
+frontend/dist/

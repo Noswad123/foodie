@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:16
+    container_name: foodie-db
+    environment:
+      POSTGRES_DB: foodie
+      POSTGRES_USER: foodie
+      POSTGRES_PASSWORD: foodie
+    ports:
+      - "2022:5432"   # keep your existing habit; change to 5432 if you want
+    volumes:
+      - foodie_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U foodie -d foodie"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: foodie-api
+    environment:
+      DATABASE_URL: postgres://foodie:foodie@db:5432/foodie?sslmode=disable
+      PORT: "8080"
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # optional, but nice for inspecting db locally
+  adminer:
+    image: adminer
+    container_name: foodie-adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  foodie_pgdata:

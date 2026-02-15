@@ -19,5 +19,4 @@ class IngredientService:
         }
         r = requests.get(endpoint, headers=headers)
 
-        ingredients = json.dumps(r.json(), indent=2)
-        return ingredients
+        return r.json()
