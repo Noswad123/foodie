@@ -10,8 +10,9 @@ CREATE TABLE recipe_types (
 );
 
 CREATE TABLE measurement_units (
-	id SERIAL PRIMARY KEY,
-	name VARCHAR(50) NOT NULL unique
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    abbreviation VARCHAR(50) NOT NULL UNIQUE
 );
 
 CREATE TABLE ingredients (
@@ -76,3 +77,12 @@ CREATE TABLE ingredient_substitutions (
 CREATE INDEX idx_ingredients_name ON ingredients (name);
 CREATE INDEX idx_recipes_name ON recipes (name);
 CREATE INDEX idx_techniques_name ON cooking_techniques (name);
+
+ALTER TABLE measurement_units ADD COLUMN abbreviation VARCHAR(50);
+ALTER TABLE measurement_units ADD CONSTRAINT measurement_units_abbrev_unique UNIQUE (abbreviation);
+
+CREATE TABLE measurement_units (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    abbreviation VARCHAR(50) NOT NULL UNIQUE
+);

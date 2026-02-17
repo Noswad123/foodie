@@ -19,3 +19,9 @@ migrate -path backend/migrations \
 go run ./cmd/server
 
 bun run dev --open
+
+
+Using:
+  - Go for the backend
+  - Bun for the frontend
+  - Python to sync records from Airtable with my app

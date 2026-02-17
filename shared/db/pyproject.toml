@@ -1,0 +1,6 @@
+[project]
+name = "foodie-db"
+version = "0.1.0"
+dependencies = [
+    "psycopg[binary]",
+]
