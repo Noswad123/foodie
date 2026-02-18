@@ -11,13 +11,17 @@ CREATE TABLE recipe_types (
 
 CREATE TABLE measurement_units (
     id SERIAL PRIMARY KEY,
+    airtable_id text UNIQUE,
     name VARCHAR(50) NOT NULL UNIQUE,
-    abbreviation VARCHAR(50) NOT NULL UNIQUE
+    abbreviation VARCHAR(50) NOT NULL UNIQUE,
+    created_at timestamptz DEFAULT NOW(),
+    updated_at timestamptz DEFAULT NOW()
 );
 
 CREATE TABLE ingredients (
 	id SERIAL PRIMARY KEY,
-	name VARCHAR(255) NOT NULL unique,
+  airtable_id text UNIQUE,
+	name VARCHAR(255) NOT NULL UNIQUE,
 	ingredient_type_id INT,
 	notes TEXT,
 	created_at TIMESTAMP DEFAULT current_timestamp,
@@ -33,23 +37,28 @@ CREATE TABLE cooking_techniques (
 
 CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
+    airtable_id text unique,
     name TEXT NOT NULL UNIQUE,
     type_id INT,
     instructions TEXT,
+    meal text[],
     prep_time INT,
     cooking_time INT,
     serving_size INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    airtable_last_modified timestaptz,
     FOREIGN KEY (type_id) REFERENCES recipe_types(id)
 );
 
 CREATE TABLE recipe_ingredients (
     id SERIAL PRIMARY KEY,
+    airtable_id text unique,
     recipe_id INTEGER REFERENCES recipes(id),
     ingredient_id INTEGER REFERENCES ingredients(id),
     measurement_unit_id INT REFERENCES measurement_units(id),
-    quantity TEXT
+    quantity TEXT,
+    is_optional boolean DEFAULT FALSE
 );
 
 CREATE TABLE recipe_techniques (
@@ -85,4 +94,9 @@ CREATE TABLE measurement_units (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL UNIQUE,
     abbreviation VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE sync_state (
+  source text PRIMARY KEY,
+  last_modified_time timestamptz NOT NULL
 );

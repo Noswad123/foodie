@@ -37,11 +37,15 @@ func main() {
 	}
 	defer pool.Close()
 
-	h := &httpapi.Handlers{DB: pool}
+	router := httpapi.NewRouter(pool)
+
 	srv := &http.Server{
 		Addr:              ":" + port,
-		Handler:           httpapi.NewRouter(h),
+		Handler:           router,
 		ReadHeaderTimeout: 5 * time.Second,
+		ReadTimeout:       15 * time.Second,
+		WriteTimeout:      15 * time.Second,
+		IdleTimeout:       60 * time.Second,
 	}
 
 	log.Printf("listening on :%s", port)
